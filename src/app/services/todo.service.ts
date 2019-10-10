@@ -47,8 +47,19 @@ export class TodoService {
     return this.todoList.filter(todo => !todo.isDoing && !todo.isDone);
   }
 
-  add(todo: ITodo): void {
-    this.todoList.push(todo);
+  add(title: String): void {
+    const newId =
+      this.todoList
+        .map(x => x.id)
+        .reduce((prev, curr) => (prev < curr ? prev : curr)) + 1;
+
+    this.todoList.push({
+      id: newId,
+      title: title,
+      isDoing: false,
+      isDone: false,
+      isEditing: false
+    });
   }
 
   delete(todo: ITodo): void {
