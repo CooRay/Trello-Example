@@ -1,0 +1,29 @@
+<div class="container todo-item">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>{{ todo.title }}</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-4">
+          <button class="btn btn-sm btn-danger">Delete</button>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-sm btn-primary">Details</button>
+        </div>
+        <div *ngIf="!todo.isDoing && !todo.isDone" class="col-md-4">
+          <button class="btn btn-sm btn-info" (click)="setDoing()">
+            Doing
+          </button>
+        </div>
+        <div *ngIf="todo.isDoing" class="col-md-4">
+          <button class="btn btn-sm btn-success" (click)="setDone()">
+            Done
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
