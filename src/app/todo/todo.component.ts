@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { ITodo } from "../interfaces/itodo";
+import { TodoService } from "../services/todo.service";
 
 @Component({
   selector: "app-todo",
@@ -8,14 +9,17 @@ import { ITodo } from "../interfaces/itodo";
 })
 export class TodoComponent implements OnInit {
   @Input() todo: ITodo;
-  constructor() {}
+  constructor(private TodoService: TodoService) {}
 
   ngOnInit() {}
 
-  setDoing() {
+  setDoing(): void {
     this.todo.isDoing = true;
   }
-  setDone() {
+  setDone(): void {
     this.todo.isDone = true;
+  }
+  delete(): void {
+    this.TodoService.delete(this.todo);
   }
 }
