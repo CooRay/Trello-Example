@@ -22,4 +22,7 @@ export class TodoComponent implements OnInit {
   delete(): void {
     this.TodoService.delete(this.todo);
   }
+  toggleEdit() {
+    this.todo.isEditing = !this.todo.isEditing;
+  }
 }
