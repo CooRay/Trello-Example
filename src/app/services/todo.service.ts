@@ -51,7 +51,7 @@ export class TodoService {
     const newId =
       this.todoList
         .map(x => x.id)
-        .reduce((prev, curr) => (prev < curr ? prev : curr)) + 1;
+        .reduce((prev, curr) => (prev < curr ? curr : prev)) + 1;
 
     this.todoList.push({
       id: newId,
